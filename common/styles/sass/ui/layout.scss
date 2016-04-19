@@ -1,0 +1,51 @@
+.content-wrapper {
+    padding: $vertical-padding $gutter;
+}
+
+.grid {
+    width: 100%;
+    
+    &.use-gutter > * {
+        padding-right: $gutter;
+        
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.column-50 {
+    display: inline-block;
+    width: 50%;
+
+    vertical-align: top;
+}
+
+.add-bottom-margin {
+    margin-bottom: $bottom-margin;
+}
+
+.articles,
+.videos {
+    position: relative;                 //Keep relative for overlay    
+}
+
+.article,
+.video {
+    @include flexbox;
+    @include flex-direction(row);
+    @include align-content(flex-start);
+
+    border-bottom: 1px solid #000;
+}
+
+.thumbnail {
+    object-fit: cover;
+
+    width: 20%;
+    height: 5rem;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,80 @@
+.introduction {
+    text-align: center;
+}
+
+.page-title {
+    @include typecsset-font-size($title);
+    color: #d3222a;
+    font-weight: bold;
+}
+
+.page-description {
+    @include typecsset-font-size($base-font-size);
+}
+
+h1 {
+    @include typecsset-font-size($header);
+
+    color: #d3222a;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    @include typecsset-font-size($subheader);
+    font-weight: bold;
+}
+
+.headlines {
+    padding: 1rem $gutter;
+
+    overflow-x: hidden;
+
+    width: 80%;
+    
+    & > * {
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+.headline {
+    font-weight: bold;
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    
+    max-width: 54em;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a:not(.cta),
+a:visited:not(.cta) {
+    color: $red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover:not(.cta),
+a:active:not(.cta) {
+    color: $dark-red;
+    font-weight: bold;
+}
+
+hr {
+    border: 1pt solid $dark-red;
+    //margin-bottom: $vertical-padding;
+    
+    width: 66%;
+}
+
+.center {
+    text-align: center;
+}

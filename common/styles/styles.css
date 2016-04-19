@@ -1,0 +1,394 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*------------------------------------*\
+#BOX-SIZING
+\*------------------------------------*/
+/**
+* Set the global `box-sizing` state to `border-box`.
+*
+* css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+* paulirish.com/2012/box-sizing-border-box-ftw
+*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/**
+ * Typecsset
+ *
+ * Typecsset is a small, unopinionated library for creating beautifully set type
+ * on the web. Typecsset gives perfect vertical rhythm at any configurable font
+ * size, as well as many other typographical niceties.
+ */
+/*------------------------------------*\
+    #SHARED
+\*------------------------------------*/
+/**
+ * A lot of elements in Typecsset need to share some declarations (mainly for
+ * vertical rhythm), so we `@extend` some silent classes.
+ */
+h1, h2, h3, h4, h5, h6, ul, ol, dd, p, address, pre, blockquote, table {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6, ul, ol, dd, p, address, pre, blockquote, table {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+/**
+ * 1. Set the base elementΓÇÖs `font-size` to the value of your choosing. Set in
+ *    ems, assuming a browser default of 16px.
+ * 2. Work out the unitless `line-height` for your project based around your
+ *    desired `line-height` (defined previously in pixels), and your projectΓÇÖs
+ *    base font size.
+ */
+html {
+  font-size: 1em;
+  /* [1] */
+  line-height: 1.5;
+  /* [2] */ }
+
+body {
+  margin: 0; }
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+h1 {
+  font-size: 48px;
+  font-size: 3rem;
+  line-height: 1; }
+
+h2 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.33333; }
+
+h3 {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.6; }
+
+h4 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+
+h5 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
+
+h6 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+ul, ol, dd {
+  margin-left: 48px;
+  margin-left: 3rem; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/*------------------------------------*\
+    #PARAGRAPHS
+\*------------------------------------*/
+/**
+ * Not strictly a paragraph, but probably doesnΓÇÖt need its own section.
+ */
+/*------------------------------------*\
+    #CODE
+\*------------------------------------*/
+/**
+ * 1. Fix an odd quirk whereby, without this, code blocks are rendered at a
+ *    font-size smaller than 1em.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* [1] */ }
+
+/*------------------------------------*\
+    #QUOTES
+\*------------------------------------*/
+/**
+ * 1. Hang the opening quote of the blockquote.
+ */
+blockquote {
+  text-indent: -0.41em;
+  /* [1] */ }
+
+/**
+ * Set up quote marks on quoting elements. This is very English-based, so we are
+ * using ΓÇ£, ΓÇ¥, ΓÇÿ, and ΓÇÖ quotes.
+ */
+blockquote {
+  quotes: "ΓÇ£" "ΓÇ¥";
+  margin-left: 48px;
+  margin-left: 3rem; }
+  blockquote p:before {
+    content: "ΓÇ£";
+    content: open-quote; }
+  blockquote p:after {
+    content: "";
+    content: no-close-quote; }
+  blockquote p:last-of-type:after {
+    content: "ΓÇ¥";
+    content: close-quote; }
+
+q {
+  quotes: "ΓÇÿ" "ΓÇÖ" "ΓÇ£" "ΓÇ¥";
+  /**
+   * If an element opens with an inline quote, letΓÇÖs hang that.
+   */ }
+  q:before {
+    content: "ΓÇÿ";
+    content: open-quote; }
+  q:after {
+    content: "ΓÇÖ";
+    content: close-quote; }
+  q q:before {
+    content: "ΓÇ£";
+    content: open-quote; }
+  q q:after {
+    content: "ΓÇ¥";
+    content: close-quote; }
+  q:first-child {
+    display: inline-block;
+    text-indent: -0.22em; }
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+/**
+ * Crude table styles; tables are very difficult to keep on the baseline.
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th,
+td {
+  padding: 12px; }
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  width: 100%; }
+
+.content-wrapper {
+  padding: 3rem 20px; }
+
+.grid {
+  width: 100%; }
+  .grid.use-gutter > * {
+    padding-right: 20px; }
+    .grid.use-gutter > *:last-child {
+      padding-right: 0; }
+
+.column-50 {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top; }
+
+.add-bottom-margin {
+  margin-bottom: 24px; }
+
+.articles,
+.videos {
+  position: relative; }
+
+.article,
+.video {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  border-bottom: 1px solid #000; }
+
+.thumbnail {
+  object-fit: cover;
+  width: 20%;
+  height: 5rem; }
+
+.hidden {
+  display: none; }
+
+.overlay {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 3rem; }
+
+.introduction {
+  text-align: center; }
+
+.page-title {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #d3222a;
+  font-weight: bold; }
+
+.page-description {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+
+h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #d3222a;
+  font-weight: bold;
+  text-align: center; }
+
+h2 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: bold; }
+
+.headlines {
+  padding: 1rem 20px;
+  overflow-x: hidden;
+  width: 80%; }
+  .headlines > * {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+
+.headline {
+  font-weight: bold; }
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 54em; }
+  p:last-child {
+    margin-bottom: 0; }
+
+a:not(.cta),
+a:visited:not(.cta) {
+  color: #d3222a;
+  font-weight: bold;
+  text-decoration: none; }
+
+a:hover:not(.cta),
+a:active:not(.cta) {
+  color: #AA222a;
+  font-weight: bold; }
+
+hr {
+  border: 1pt solid #AA222a;
+  width: 66%; }
+
+.center {
+  text-align: center; }
+
+.cta {
+  display: inline-block;
+  padding: .5rem 20px;
+  border-radius: 6px;
+  background: #d3222a;
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 250ms linear; }
+  .cta:hover, .cta:active {
+    background-color: #AA222a;
+    color: #FFF; }
+
+input {
+  border: 1px solid #999;
+  border-radius: 6px;
+  height: 2rem;
+  text-align: center; }
+  input[type=text] {
+    width: 90%; }
+  input[type=number] {
+    width: 3rem; }
+
+/*# sourceMappingURL=styles.css.map */

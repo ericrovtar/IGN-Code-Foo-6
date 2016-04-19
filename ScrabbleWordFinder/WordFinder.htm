@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- #METADATA -->
+    <title>IGN Scrabble Word Finder Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <!-- #CSS -->
+    <link href="../common/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="introduction content-wrapper">
+        <div class="page-title">
+            Scrabble Word Finder Example
+        </div>
+
+        <div class="page-description">
+            <p>
+                This example uses a
+                <a href="http://www.ign.com/code-foo/2016/words.txt">provided list of words</a> as its dictionary. It takes
+                the letters provided (max 7) and finds the possible words from the dictionary. It then computes the Scrabble
+                value of the word and sorts the words from greatest value to least.
+            </p>
+
+            <p>
+                To help simulate a real-world example, this application will also cache any values it calculates for a word to reduce repeative
+                processing.
+            </p>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="center">
+        <div class="content-wrapper">
+            <div class="headline">
+                Please enter your Scrabble letters.
+            </div>
+            
+            <p>
+                The more of your letters you enter, the more we can help, but it&rsquo;s
+                Scrabble, so you&rsquo;re capped at seven.
+            </p>
+
+            <div class="add-bottom-margin">
+                <input type="text" id="scrabbleLetters" maxlength="7" />
+            </div>
+
+            <div>
+                <a href="#" class="cta">Search</a>
+            </div>
+        </div>
+
+        <div class="matches hidden">
+            <hr />
+            
+            <div class="content-wrapper">
+                <h2 class="subheadline">Possible Words</h2>
+                <p>
+                    Here are the words we found along with their respective Scrabble scores in
+                    parentheses. The word with the greatest value is listed first. You might
+                    want to try to use that one.
+                </p>
+                
+                <div class="matchedWords"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- #SCRIPTS -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+<script>
+    $(document).ready(function() {
+        initialize();
+    });
+</script>
+
+</html>
