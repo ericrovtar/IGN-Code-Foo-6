@@ -1,0 +1,128 @@
+<!------------------------------------------------------------------------
+NOTES
+=====
+To handle Cross-Origin Request, we use a JSONP solution as supported by
+jQuery.
+-------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- #METADATA -->
+        <title>IGN Articles &amp; Videos API Call Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        
+        <!-- #CSS -->
+        <link href="../common/styles/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="introduction content-wrapper">
+            <div class="page-title">
+                Front End API Call Example
+            </div>
+            
+            <div class="page-description">
+                <p>
+                    This example uses the IGN API to retrieve articles and videos. After each call,
+                    it displays the appropriate data.
+                </p>
+                
+                <p>
+                    You can control how many articles or videos are retreived with each call.
+                </p>
+                
+                <p>
+                    It also includes moderate paging functionality by loading the next set of data
+                    by keeping track of the startIndex value. To trigger the next API call for either 
+                    articles for videos, click the appropriate column's Load More button.
+                </p>
+            </div>
+        </div>
+        
+        <hr />
+        
+        <div class="grid use-gutter add-bottom-margin" ng-app="articlesApp" ng-controller="myCtrl">
+            <div class="column-50">
+                <h1>Articles</h1>
+                
+                <div class="center add-bottom-margin">
+                    <label>
+                        Number of Articles to Display:
+
+                        <input class="numberOfArticles" type="number" min="1" max="20" value="10" />
+                    </label>
+                </div>
+                
+                <div class="articles add-bottom-margin">
+                    <div>Articles {{ json.index + 1 }} to {{ json.index + json.count + 1 }}</div>
+                    
+                    <div class="article" ng-repeat="x in json.data">
+                        <img src="{{ x.thumbnail }}" class="thumbnail">
+                        
+                        <div class="headlines">
+                            <div class="headline">{{ x.metadata.headline }}</div>
+                            <div class="subheadline">{{ x.metadata.subHeadline }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center">
+                    <a href="#" class="loadMoreArticles cta">Load More</a>
+                </div>
+            </div><!--
+            
+         --><div class="column-50">
+                <h1>Videos</h1>
+                
+                <div class="center add-bottom-margin">
+                    <label>
+                        Number of Videos to Display:
+
+                        <input class="numberOfVideos" type="number" min="1" max="20" value="10" />
+                    </label>
+                </div>
+                
+                <div class="videos add-bottom-margin"></div>
+            
+                <div class="center">
+                    <a href="#" class="loadMoreVideos cta">Load More</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <!-- #SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <!--<script src="scripts.js"></script>
+    <script>
+        $(document).ready(function() {
+            initialize();
+        });
+    </script>-->
+    
+    <script>
+        var apiDomain = "http://ign-apis.herokuapp.com/";
+        var defaults = {
+            startIndex: 0,
+            count: 10,
+        };
+        var endpoint = "articles";
+        
+        var articlesApp = angular.module('articlesApp', []);
+        articlesApp.controller('myCtrl', function($scope, $http) {
+            
+            var url = apiDomain + endpoint + "?callback=JSON_CALLBACK";
+            
+            $http.jsonp(url)
+                .then(function(response) {
+                    $scope.json = response.data;
+                }, function(response) {
+                    console.log(response.status + ": " + response.statusText);
+                }
+            );
+        });
+    </script>
+</html> 
